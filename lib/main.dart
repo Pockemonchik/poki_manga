@@ -18,10 +18,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           backgroundColor: kPrimaryColor,
+           elevation: 0,
+            scrolledUnderElevation: 0,
         ),
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        fontFamily: 'Gilroy',
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+          titleLarge: TextStyle(fontSize: 30.0, fontFamily: 'Gilroy',color: kTextColor),
+          bodyMedium: TextStyle(fontSize: 10.0, fontFamily: 'Gilroy',fontWeight: FontWeight.bold),
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LibraryScreen(),

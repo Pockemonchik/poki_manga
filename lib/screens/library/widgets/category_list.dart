@@ -10,14 +10,14 @@ class CategoryList extends StatefulWidget {
 class _CategoryListState extends State<CategoryList> {
 
   int selectedIndex = 0;
-  List categories = ['Читаю', 'Закладки', 'Прочитано'];
+  List categories = ['Читаю', 'Закладки', 'Прочитанное'];
   @override
   Widget build(BuildContext context) {
    return Container(
-    margin: EdgeInsets.symmetric(vertical: kDefaultPadding/2),
-    height: 30,
+    height: 25,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
         itemCount: categories.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
@@ -41,7 +41,7 @@ class _CategoryListState extends State<CategoryList> {
             ),
             child: Text(
               categories[index],
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(fontSize: 12.0,color: kTextColor),
             ),
           ),
         ),
