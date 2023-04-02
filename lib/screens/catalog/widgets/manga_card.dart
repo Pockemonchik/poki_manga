@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 
 import '../../../models/manga.dart';
+import '../../../widgets/slide_left_route.dart';
+import '../../detail_manga/detail_manga_screen.dart';
 
 class MangaCard extends StatelessWidget {
   const MangaCard({
@@ -20,12 +22,14 @@ class MangaCard extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.only(
-              left: kDefaultPadding / 5, right: kDefaultPadding / 5),
+              bottom: kDefaultPadding / 5,
+              left: kDefaultPadding / 5,
+              right: kDefaultPadding / 5),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(kDefaultRadius),
             color: kBackgroundColor,
             boxShadow: [
-              BoxShadow(blurRadius: 2, color: kPrimaryColorWithOpasity)
+              BoxShadow(blurRadius: 3, color: kPrimaryColorWithOpasity)
             ],
           ),
           child: Row(
@@ -74,7 +78,15 @@ class MangaCard extends StatelessWidget {
                           ),
                           child: Text("Читать",
                               style: Theme.of(context).textTheme.labelSmall),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              SlideLeftRoute(
+                                page: DetailMangaScreen(
+                                    manga: manga),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ],

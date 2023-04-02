@@ -15,10 +15,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mangaRepository = MangaRepository();
-    return BlocProvider(
-      create: (context) => MangaCubit(mangaRepository),
-      child: SingleChildScrollView(
+    return  SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -28,7 +25,6 @@ class Body extends StatelessWidget {
             CardGrid(),
           ],
         ),
-      ),
     );
   }
 }

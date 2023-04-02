@@ -5,6 +5,8 @@ import 'package:poki_manga/services/manga_repository.dart';
 
 import '../../../cubit/manga_cubit.dart';
 import '../../../cubit/manga_state.dart';
+import '../../../widgets/slide_left_route.dart';
+import '../../detail_manga/detail_manga_screen.dart';
 import 'manga_card.dart';
 
 class CardGrid extends StatefulWidget {
@@ -14,7 +16,7 @@ class CardGrid extends StatefulWidget {
 
 class _CardGridState extends State<CardGrid> {
   int selectedIndex = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     // final MangaCubit mangaCubit = context.read<MangaCubit>();
@@ -28,8 +30,7 @@ class _CardGridState extends State<CardGrid> {
               style: TextButton.styleFrom(
                 backgroundColor: kButtonColor,
               ),
-              child:
-                  const Text("загрузить мангу"),
+              child: const Text("загрузить мангу"),
               onPressed: () {
                 mangaCubit.fetchManga();
               },
@@ -53,10 +54,11 @@ class _CardGridState extends State<CardGrid> {
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                 crossAxisSpacing: 10,
                 mainAxisSpacing: kDefaultPadding,
-                mainAxisExtent: 135,
+                mainAxisExtent: 140,
                 maxCrossAxisExtent: 600,
               ),
               itemBuilder: (context, index) => MangaCard(
+                
                 itemIndex: index,
                 manga: state.loadedManga[index],
               ),
