@@ -5,7 +5,6 @@ import 'package:poki_manga/screens/library/widgets/header_with_settings.dart';
 
 import 'card_grid.dart';
 import 'category_list.dart';
-import 'header_with_searchbox.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -18,9 +17,7 @@ class Body extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          // HeaderWithSearchBox(),
           HeaderWithSettings(),
-          // SizedBox(height: kDefaultPadding),
           CategoryList(),
           SizedBox(height: kDefaultPadding/2),
           CardGrid(),

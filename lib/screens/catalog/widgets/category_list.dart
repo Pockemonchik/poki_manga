@@ -10,7 +10,7 @@ class CategoryList extends StatefulWidget {
 class _CategoryListState extends State<CategoryList> {
 
   int selectedIndex = 0;
-  List categories = ['Читаю', 'Закладки', 'Прочитанное'];
+  List categories = ['Популярное', 'Новинки', 'Для тебя'];
   @override
   Widget build(BuildContext context) {
    return Container(

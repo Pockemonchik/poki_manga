@@ -17,15 +17,14 @@ class MangaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: 800,
-      width: 150,
+     
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(kDefaultRadius),
         border: Border.all(
-                color: kShapeTextColor,
-                width: 0.2,
-            ),
-        color:kBackgroundColor,
+          color: kShapeTextColor,
+          width: 0.2,
+        ),
+        color: kBackgroundColor,
         boxShadow: [kDefaultShadow],
       ),
       margin: const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
@@ -43,13 +42,24 @@ class MangaCard extends StatelessWidget {
               children: [
                 // ignore: prefer_const_literals_to_create_immutables
                 Row(children: [
-                  const Expanded(child: LinearProgressIndicator(value: 0.5, minHeight: 5)),
+                  const Expanded(
+                      child: LinearProgressIndicator(value: 0.5, minHeight: 5)),
                   const SizedBox(width: kDefaultPadding / 4),
-                  const Text("5/20",style: TextStyle(fontSize: 10.0,color: kShapeTextColor)),
+                  const Text("5/20",
+                      style: TextStyle(fontSize: 10.0, color: kShapeTextColor)),
                 ]),
-                const SizedBox(height: kDefaultPadding / 2),
-                Text(manga.title,
-                    style: Theme.of(context).textTheme.bodyMedium),
+                const SizedBox(height: kDefaultPadding / 4),
+                SizedBox(
+                  height: 30,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Text(manga.title,
+                            style: Theme.of(context).textTheme.bodySmall),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           )

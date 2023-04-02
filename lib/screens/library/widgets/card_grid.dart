@@ -20,11 +20,13 @@ class _CardGridState extends State<CardGrid> {
           itemCount: mangas.length,
           
           // ignore: prefer_const_constructors
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent (
+              // crossAxisCount: 3,
+              childAspectRatio: 0.2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              mainAxisExtent: 230),
+              mainAxisExtent: 230,
+              maxCrossAxisExtent: 150),
           itemBuilder: (context, index) => MangaCard(
             itemIndex: index,
             manga: mangas[index],

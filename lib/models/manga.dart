@@ -10,51 +10,51 @@ class Manga {
 List<Manga> mangas = [
   Manga(
     id: 1,
-    title: "Classic Leather Arm Chair",
+    title: "Сайке кусуоу",
     image: "images/1.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манхва, экстрасенсорика",
   ),
   Manga(
     id: 2,
-    title: "Poppy Plastic Tub Chair",
+    title: "Токийский гуль",
     image: "images/2.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манга, Имба гг, супер",
   ),
   Manga(
     id: 3,
-    title: "Bar Stool Chair",
+    title: "Поднятие уровня в одиночку",
     image: "images/3.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манга, Имба гг, супер",
   ),
   Manga(
     id: 4,
-    title: "Poppy Plastic Tub Chair",
+    title: "Токийский гуль",
     image: "images/4.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манга, Имба гг, супер",
   ),
   Manga(
     id: 5,
-    title: "Bar Stool Chair",
+    title: "Поднятие уровня в одиночку",
     image: "images/5.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манга, Имба гг, супер ",
   ),
   Manga(
     id: 6,
-    title: "Poppy Plastic Tub Chair",
+    title: "Токийский гуль",
     image: "images/2.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манга, Имба гг, супер ",
   ),
   Manga(
     id: 7,
-    title: "Bar Stool Chair",
+    title: "Поднятие уровня в одиночку | Solo leveling.......",
     image: "images/3.jpg",
     description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim",
+        "Манга, Имба гг, супер ",
   ),
 ];

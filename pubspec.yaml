@@ -38,6 +38,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.4
+  flutter_bloc: ^8.1.2
+  http: ^0.13.5
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -81,6 +85,7 @@ flutter:
     - family: Gilroy
       fonts:
         - asset: assets/fonts/Gilroy-Black.ttf
+        - asset: assets/fonts/Gilroy-Regular.ttf
         - asset: assets/fonts/Gilroy-BlackItalic.ttf
           style: italic
         - asset: assets/fonts/Gilroy-Bold.ttf

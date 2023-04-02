@@ -12,13 +12,13 @@ class HeaderWithSettings extends StatelessWidget {
       children: [
          Container(
           height: size.height * 0.02,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
              color: kPrimaryColor,
           ),  
         ),
         Container(
           height: size.height * 0.03,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
              color: kBackgroundColor,
             borderRadius: BorderRadius.only(
             topLeft: kDefaultRadius, topRight: kDefaultRadius),
@@ -26,20 +26,5 @@ class HeaderWithSettings extends StatelessWidget {
         ),
       ],
     );
-
-    //     children:
-    //   height: size.height * 0.2,
-    //   color: kPrimaryColor,
-    //    margin: EdgeInsets.only(bottom: 0),
-    //     padding: EdgeInsets.only(bottom: 0),
-    //   child:
-    //    Container(
-    //   height: size.height * 0.2,
-    //   decoration: BoxDecoration(
-    //     color: kBackgroundColor,
-    //             borderRadius: BorderRadius.only(topLeft: kDefaultRadius,topRight: kDefaultRadius),
-    //   ),
-    // )
-    // );
   }
 }
