@@ -15,17 +15,18 @@ class MangaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      // height: size.height * 0.2,
-      width: size.width * 0.95,
+      height: 350,
+      width: size.width,
       margin: const EdgeInsets.only(
           top: kDefaultPadding / 2,
           bottom: kDefaultPadding / 2,
-          left: kDefaultPadding / 2,
+          left: kDefaultPadding,
           right: kDefaultPadding / 2),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(kDefaultRadius),
-        color: kButtonColor,
-        boxShadow: [BoxShadow(blurRadius: 3, color: kPrimaryColorWithOpasity)],
+        // color: Color.fromARGB(255, 30, 194, 131),
+        // boxShadow: [BoxShadow(blurRadius: 3, color: kPrimaryColorWithOpasity),
+        // ],
       ),
       child: Row(
         children: [
@@ -61,17 +62,158 @@ class MangaCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 200,
+                  height: 250,
+                  width: 170,
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(manga.title,
-                            style: TextStyle(fontSize: 22.0, color: Colors.white),),
-                        const SizedBox(height: kDefaultPadding ),
-                        Text(manga.description,
-                            style: Theme.of(context).textTheme.labelSmall),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Text(
+                          manga.title,
+                          style: TextStyle(fontSize: 20.0, color: Colors.white),
+                        ),
+                        const SizedBox(height: kDefaultPadding * 3),
+                        Text(manga.author,
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.star_half,
+                              color: kButtonColor,
+                              size: 12.0,
+                            ),
+                            Text(" 4.5",
+                                style: Theme.of(context).textTheme.bodySmall),
+                          ],
+                        ),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Row(
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(7)),
+                                color: Color.fromARGB(255, 228, 169, 208),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 3,
+                                      color: kPrimaryColorWithOpasity)
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    top: kDefaultPadding / 4,
+                                    bottom: kDefaultPadding / 4,
+                                    right: kDefaultPadding / 4,
+                                    left: kDefaultPadding / 4),
+                                child: Text(
+                                  "Романтика",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelSmall
+                                      ?.merge(TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 209, 48, 156),
+                                      )),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: kDefaultPadding / 2),
+                            Container(
+                              decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(7)),
+                                color: Color.fromARGB(255, 138, 187, 228),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 3,
+                                      color: kPrimaryColorWithOpasity)
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    top: kDefaultPadding / 4,
+                                    bottom: kDefaultPadding / 4,
+                                    right: kDefaultPadding / 4,
+                                    left: kDefaultPadding / 4),
+                                child: Text(
+                                  "комедия",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelSmall
+                                      ?.merge(TextStyle(
+                                        color: Color.fromARGB(255, 10, 99, 172),
+                                      )),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: kDefaultPadding / 2),
+                        Row(
+                          children: [
+                            Container(
+                              decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(7)),
+                                color: Color.fromARGB(255, 158, 236, 164),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 3,
+                                      color: kPrimaryColorWithOpasity)
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    top: kDefaultPadding / 4,
+                                    bottom: kDefaultPadding / 4,
+                                    right: kDefaultPadding / 4,
+                                    left: kDefaultPadding / 4),
+                                child: Text(
+                                  "Супер сила",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelSmall
+                                      ?.merge(TextStyle(
+                                        color: Color.fromARGB(255, 46, 194, 58),
+                                      )),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: kDefaultPadding / 2),
+                            Container(
+                              decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(7)),
+                                color: Color.fromARGB(255, 177, 214, 107),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 3,
+                                      color: kPrimaryColorWithOpasity)
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    top: kDefaultPadding / 4,
+                                    bottom: kDefaultPadding / 4,
+                                    right: kDefaultPadding / 4,
+                                    left: kDefaultPadding / 4),
+                                child: Text(
+                                  "Имба гг",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelSmall
+                                      ?.merge(TextStyle(
+                                        color: Color.fromARGB(255, 108, 119, 4),
+                                      )),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),

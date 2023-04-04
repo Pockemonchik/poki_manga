@@ -1,6 +1,6 @@
 class Manga {
   final int id;
-  final String title, description, image;
+  final String title, description, image, author;
   final List<String> genres;
 
   Manga({
@@ -9,6 +9,7 @@ class Manga {
     required this.description,
     required this.image,
     required this.genres,
+    required this.author,
   });
 }
 
@@ -19,12 +20,14 @@ List<Manga> mangas = [
     id: 1,
     title: "Сайке кусуоу",
     image: "images/1.jpg",
+    author: "Ямада хидзео",
     description: "Манхва, экстрасенсорика",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
   Manga(
     id: 2,
     title: "Токийский гуль",
+    author: "Ямада хидзео",
     image: "images/2.jpg",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
@@ -33,12 +36,14 @@ List<Manga> mangas = [
     id: 3,
     title: "Поднятие уровня в одиночку",
     image: "images/3.jpg",
+    author: "Ямада хидзео",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
   Manga(
     id: 4,
     title: "Токийский гуль",
+    author: "Ямада хидзео",
     image: "images/4.jpg",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
@@ -47,18 +52,21 @@ List<Manga> mangas = [
     id: 5,
     title: "Поднятие уровня в одиночку",
     image: "images/5.jpg",
+    author: "Ямада хидзео",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
   Manga(
     id: 6,
     title: "Токийский гуль",
+    author: "Ямада хидзео",
     image: "images/2.jpg",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
   Manga(
     id: 7,
+    author: "Ямада хидзео",
     title: "Поднятие уровня в одиночку | Solo leveling.......",
     image: "images/3.jpg",
     description: "Манга, Имба гг, супер",

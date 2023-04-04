@@ -18,7 +18,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -29,7 +29,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            height: size.height * 0.35,
+            height: 280,
             width: size.width,
             child: Stack(
               children: [
@@ -55,7 +55,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               tabs: [
                 Text("Описание"),
                 Text("Главы"),
-                Text("О манге"),
                 Text("Связанное"),
               ],
             ),
@@ -63,14 +62,22 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
           Container(
             padding: const EdgeInsets.only(left: 20),
             height: 300,
-            decoration: const BoxDecoration(
-                // color: Colors.black,
-                ),
             child: TabBarView(
               controller: _tabController,
               children: [
-                Center(
-                  child: Text("It's cloudy here"),
+                Container(
+                  margin: const EdgeInsets.all(kDefaultPadding),
+                  child: Text(
+                      """У королевской семьи был огромный долг. Чтобы получить невообразимые деньги и вернуть его, они выдали принцессу Виолетту замуж за внебрачного ребёнка герцога, Винтера.
+К счастью, хоть брак и был по расчету, Виолетта влюбилась с первого взгляда в своего супруга, однако брачная жизнь с самого начала была противоречивой.
+«Будь это простое дело, я бы даже не пришла к тебе с этой просьбой. Давай в этот раз вместе...»""",
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelMedium
+                          ?.merge(TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                          ))),
                 ),
                 Center(
                   child: Text("It's rainy here"),
@@ -78,10 +85,38 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 Center(
                   child: Text("It's sunny here"),
                 ),
-                Center(
-                  child: Text("It's sunny here"),
-                ),
               ],
+            ),
+          ),
+          Container(
+            height: 40,
+            width: 300,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(7)),
+              color: kButtonColor,
+              boxShadow: [
+                BoxShadow(blurRadius: 3, color: kPrimaryColorWithOpasity)
+              ],
+            ),
+            // width: 150,
+            child: Center(
+              child: TextButton(
+                child: Text(
+                  "Продолжить чтение",
+                  style: Theme.of(context).textTheme.bodyMedium?.merge(
+                        TextStyle(fontSize: 16),
+                      ),
+                ),
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   SlideLeftRoute(
+                  //     page: DetailMangaScreen(
+                  //         manga: manga),
+                  //   ),
+                  // );
+                },
+              ),
             ),
           ),
         ],
