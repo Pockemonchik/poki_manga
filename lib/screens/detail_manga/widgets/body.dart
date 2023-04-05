@@ -3,6 +3,7 @@ import 'package:poki_manga/core/constants.dart';
 import 'package:poki_manga/screens/detail_manga/widgets/manga_card.dart';
 
 import '../../../models/manga.dart';
+import 'chapter_list.dart';
 import 'header_detail.dart';
 
 class Body extends StatefulWidget {
@@ -33,12 +34,13 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             width: size.width,
             child: Stack(
               children: [
+                
                 const HeaderDetail(),
                 Positioned(
                   top: 0,
                   left: 0,
                   child: MangaCard(
-                    manga: this.widget.manga,
+                    manga: widget.manga,
                   ),
                 ),
               ],
@@ -79,9 +81,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                             fontSize: 15,
                           ))),
                 ),
-                Center(
-                  child: Text("It's rainy here"),
-                ),
+                ChapterList(chapter_list: widget.manga.chapter_list),
                 Center(
                   child: Text("It's sunny here"),
                 ),

@@ -11,13 +11,13 @@ class HeaderDetail extends StatelessWidget {
     return Stack(
       children: [
          Container(
-          height: size.height * 0.16,
+          height: size.height * 0.17,
           decoration: const BoxDecoration(
             color: kBackgroundColor,
           ),
         ),
         Container(
-          height: size.height * 0.15,
+          height: size.height * 0.16,
           decoration: const BoxDecoration(
             color: kPrimaryColor,
           ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:poki_manga/screens/detail_manga/widgets/body.dart';
 
-
 import '../../core/constants.dart';
 import '../../models/manga.dart';
 import '../../widgets/bottom_nav_bar.dart';
@@ -18,7 +17,7 @@ class DetailMangaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body(manga:manga),
+      body: Body(manga: manga),
       bottomNavigationBar: BottomNavBar(),
     );
   }
@@ -26,9 +25,10 @@ class DetailMangaScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
         elevation: 0.0,
-        toolbarHeight: kToolbarFixHeight,
+        toolbarHeight: kToolbarFixHeight+1,
         backgroundColor: kPrimaryColor,
         bottomOpacity: 0.0,
+        
         actions: <Widget>[
           IconButton(
             padding: EdgeInsets.only(right: kDefaultPadding),
