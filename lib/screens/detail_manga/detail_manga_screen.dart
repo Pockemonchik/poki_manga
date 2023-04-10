@@ -25,7 +25,7 @@ class DetailMangaScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
         elevation: 0.0,
-        toolbarHeight: kToolbarFixHeight+1,
+        toolbarHeight: kToolbarFixHeight+10,
         backgroundColor: kPrimaryColor,
         bottomOpacity: 0.0,
         

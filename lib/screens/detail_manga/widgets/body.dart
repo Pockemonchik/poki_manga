@@ -34,7 +34,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             width: size.width,
             child: Stack(
               children: [
-                
                 const HeaderDetail(),
                 Positioned(
                   top: 0,
@@ -70,16 +69,16 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 Container(
                   margin: const EdgeInsets.all(kDefaultPadding),
                   child: Text(
-                      """У королевской семьи был огромный долг. Чтобы получить невообразимые деньги и вернуть его, они выдали принцессу Виолетту замуж за внебрачного ребёнка герцога, Винтера.
+                    """У королевской семьи был огромный долг. Чтобы получить невообразимые деньги и вернуть его, они выдали принцессу Виолетту замуж за внебрачного ребёнка герцога, Винтера.
 К счастью, хоть брак и был по расчету, Виолетта влюбилась с первого взгляда в своего супруга, однако брачная жизнь с самого начала была противоречивой.
 «Будь это простое дело, я бы даже не пришла к тебе с этой просьбой. Давай в этот раз вместе...»""",
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelMedium
-                          ?.merge(TextStyle(
+                    style: Theme.of(context).textTheme.labelMedium?.merge(
+                          TextStyle(
                             color: Colors.black,
                             fontSize: 15,
-                          ))),
+                          ),
+                        ),
+                  ),
                 ),
                 ChapterList(chapter_list: widget.manga.chapter_list),
                 Center(

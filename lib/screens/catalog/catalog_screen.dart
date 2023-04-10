@@ -23,7 +23,7 @@ class CatalogScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
         elevation: 0.0,
-        toolbarHeight: kToolbarFixHeight,
+        toolbarHeight: kToolbarFixHeight+2,
         backgroundColor: kPrimaryColor,
         bottomOpacity: 0.0,
         title: const Text('Каталог манги',
