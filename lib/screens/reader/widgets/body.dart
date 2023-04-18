@@ -16,15 +16,21 @@ class Body extends StatelessWidget {
       /// [PageView.scrollDirection] defaults to [Axis.horizontal].
       /// Use [Axis.vertical] to scroll vertically.
       controller: pageController,
-      children: const <Widget>[
-        Center(
-          child: Text('First Page'),
+      children: <Widget>[
+        SingleChildScrollView(
+          child: 
+          Image.asset("assets/images/page.jpg",
+                    fit: BoxFit.fitWidth),
         ),
-        Center(
-          child: Text('Second Page'),
+        SingleChildScrollView(
+          child: 
+          Image.asset("assets/images/page2.jpg",
+                    fit: BoxFit.fitWidth),
         ),
-        Center(
-          child: Text('Third Page'),
+         SingleChildScrollView(
+          child: 
+          Image.asset("assets/images/page.jpg",
+                    fit: BoxFit.fitWidth),
         ),
       ],
     );
