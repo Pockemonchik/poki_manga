@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/screens/catalog/catalog_screen.dart';
 import 'package:poki_manga/screens/library/library_screen.dart';
-
 import 'package:poki_manga/core/constants.dart';
-import 'package:poki_manga/services/manga_repository.dart';
-
 import 'cubit/manga_cubit.dart';
+import 'data/repositories/repository.dart';
 
 void main() {
   runApp(MyApp());

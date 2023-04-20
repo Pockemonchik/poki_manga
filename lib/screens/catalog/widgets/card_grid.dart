@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/core/constants.dart';
-import 'package:poki_manga/services/manga_repository.dart';
-
 import '../../../cubit/manga_cubit.dart';
 import '../../../cubit/manga_state.dart';
-import '../../../widgets/slide_left_route.dart';
-import '../../detail_manga/detail_manga_screen.dart';
 import 'manga_card.dart';
 
 class CardGrid extends StatefulWidget {

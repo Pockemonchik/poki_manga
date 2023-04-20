@@ -6,7 +6,7 @@ class MangaProvider {
   Future<List<Manga>> getAllManga() async {
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
     await Future.delayed(const Duration(seconds: 1));
-    log('response data:' + response.body);
+    // log('response data:' + response.body);
     return mangas;
   }
 }

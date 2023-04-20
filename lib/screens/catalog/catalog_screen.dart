@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:poki_manga/cubit/manga_cubit.dart';
 import 'package:poki_manga/screens/catalog/widgets/body.dart';
-import 'package:poki_manga/services/manga_repository.dart';
-
 import '../../core/constants.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
