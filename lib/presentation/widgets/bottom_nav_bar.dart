@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:poki_manga/screens/catalog/catalog_screen.dart';
-import 'package:poki_manga/screens/library/library_screen.dart';
+import 'package:poki_manga/presentation/screens/catalog/catalog_screen.dart';
+import 'package:poki_manga/presentation/screens/library/library_screen.dart';
 
-import '../core/constants.dart';
+import '../../core/constants.dart';
 
 class BottomNavBar extends StatelessWidget {
   @override

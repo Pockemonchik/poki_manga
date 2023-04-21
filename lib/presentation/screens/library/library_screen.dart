@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:poki_manga/screens/catalog/widgets/body.dart';
-import '../../core/constants.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:poki_manga/presentation/screens/library/widgets/body.dart';
+
+import '../../../core/constants.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
-class CatalogScreen extends StatelessWidget {
-  CatalogScreen({super.key});
+class LibraryScreen extends StatelessWidget {
+  const LibraryScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(
+    return Scaffold(
+      
       appBar: buildAppBar(),
       body:  Body(),
       bottomNavigationBar: BottomNavBar(),
@@ -18,10 +21,10 @@ class CatalogScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
         elevation: 0.0,
-        toolbarHeight: kToolbarFixHeight+2,
+        toolbarHeight: kToolbarFixHeight,
         backgroundColor: kPrimaryColor,
         bottomOpacity: 0.0,
-        title: const Text('Каталог манги',
+        title: const Text('Моя библиотека',
             style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,

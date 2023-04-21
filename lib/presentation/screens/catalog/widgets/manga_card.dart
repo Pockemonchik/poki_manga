@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 
-import '../../../models/manga.dart';
+import '../../../../domain/entities/manga.dart';
 import '../../../widgets/slide_left_route.dart';
 import '../../detail_manga/detail_manga_screen.dart';
 

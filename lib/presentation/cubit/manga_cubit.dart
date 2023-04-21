@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:poki_manga/cubit/manga_state.dart';
-import '../data/repositories/repository.dart';
-import '../models/manga.dart';
+import 'package:poki_manga/presentation/cubit/manga_state.dart';
+import '../../data/repositories/repository.dart';
+import '../../domain/entities/manga.dart';
 
 class MangaCubit extends Cubit<MangaState> {
   final MangaRepository mangaRepository;

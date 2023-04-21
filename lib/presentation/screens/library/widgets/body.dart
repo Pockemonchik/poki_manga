@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
-import 'package:poki_manga/screens/library/widgets/header_with_settings.dart';
+import 'package:poki_manga/presentation/screens/library/widgets/header_with_settings.dart';
 
 import 'card_grid.dart';
 import 'category_list.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 import 'package:flutter/foundation.dart';
-import 'package:poki_manga/screens/detail_manga/detail_manga_screen.dart';
+import 'package:poki_manga/presentation/screens/detail_manga/detail_manga_screen.dart';
 
-import '../../../models/manga.dart';
+import '../../../../domain/entities/manga.dart';
 import '../../../widgets/slide_left_route.dart';
 import 'manga_card.dart';
 

@@ -1,4 +1,4 @@
-import '../models/manga.dart';
+import '../../domain/entities/manga.dart';
 import 'package:http/http.dart' as http;
  import 'dart:developer';
 

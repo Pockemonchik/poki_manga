@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
-import 'package:poki_manga/screens/detail_manga/widgets/manga_card.dart';
+import 'package:poki_manga/presentation/screens/detail_manga/widgets/manga_card.dart';
 
-import '../../../models/manga.dart';
+import '../../../../domain/entities/manga.dart';
 import 'chapter_list.dart';
 import 'header_detail.dart';
 

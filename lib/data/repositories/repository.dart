@@ -2,8 +2,8 @@ import 'package:drift/drift.dart';
 import 'package:poki_manga/data/db/database.dart';
 import 'package:poki_manga/data/mappers/manga_model_to_database.dart';
 import 'package:poki_manga/data/mappers/manga_table_data_to_domain.dart';
-import '../../models/manga.dart';
-import '../../services/manga_provider.dart';
+import '../../domain/entities/manga.dart';
+import '../datasources/manga_provider.dart';
 
 class MangaRepository {
   

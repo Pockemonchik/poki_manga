@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:poki_manga/screens/detail_manga/widgets/body.dart';
+import 'package:poki_manga/presentation/screens/detail_manga/widgets/body.dart';
 
-import '../../core/constants.dart';
-import '../../models/manga.dart';
+import '../../../core/constants.dart';
+import '../../../domain/entities/manga.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
 class DetailMangaScreen extends StatelessWidget {

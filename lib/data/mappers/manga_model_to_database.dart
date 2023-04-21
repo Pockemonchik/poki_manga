@@ -1,4 +1,4 @@
-import '../../models/manga.dart';
+import '../../domain/entities/manga.dart';
 import '../db/database.dart';
 
 extension MangaModelToDatabase on Manga {

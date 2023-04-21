@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 
-import '../../../models/manga.dart';
+import '../../../../domain/entities/manga.dart';
 
 class MangaCard extends StatelessWidget {
   const MangaCard({
