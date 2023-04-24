@@ -3,16 +3,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/widgets/body.dart';
 
 import '../../../core/constants.dart';
-import '../../../domain/entities/manga.dart';
+import '../../../domain/entities/manga_entity.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
-class DetailMangaScreen extends StatelessWidget {
-  const DetailMangaScreen({
+class DetailMangaEntityScreen extends StatelessWidget {
+  const DetailMangaEntityScreen({
     super.key,
     required this.manga,
   });
 
-  final Manga manga;
+  final MangaEntity manga;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

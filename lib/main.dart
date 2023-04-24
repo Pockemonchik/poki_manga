@@ -3,22 +3,31 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/presentation/screens/catalog/catalog_screen.dart';
 import 'package:poki_manga/presentation/screens/library/library_screen.dart';
 import 'package:poki_manga/core/constants.dart';
-import 'presentation/cubit/manga_cubit.dart';
-import 'data/repositories/repository.dart';
+import 'di.dart' as di; 
+import 'domain/repositories/manga_repository.dart';
+import 'domain/usecases/get_all_manga.dart';
+import 'presentation/cubit/manga_catalog_cubit.dart';
+import 'data/repositories/manga_repository_impl.dart';
 
-void main() {
+
+void main() async  {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final mangaRepository = MangaRepository();
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => MangaCubit(mangaRepository),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<MangaCatalogCubit>(
+            create: (context) =>  di.sl<MangaCatalogCubit>()),
+      
+      ],
       child: MaterialApp(
-        title: "Poki Manga!",
+        title: "Poki MangaEntity!",
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(

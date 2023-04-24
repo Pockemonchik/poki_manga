@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/widgets/manga_card.dart';
 
-import '../../../../domain/entities/manga.dart';
+import '../../../../domain/entities/manga_entity.dart';
 import 'chapter_list.dart';
 import 'header_detail.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key, required this.manga});
-  final Manga manga;
+  final MangaEntity manga;
 
   @override
   _BodyState createState() => _BodyState();
@@ -38,7 +38,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 Positioned(
                   top: 0,
                   left: 0,
-                  child: MangaCard(
+                  child: MangaEntityCard(
                     manga: widget.manga,
                   ),
                 ),
@@ -110,7 +110,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   // Navigator.push(
                   //   context,
                   //   SlideLeftRoute(
-                  //     page: DetailMangaScreen(
+                  //     page: DetailMangaEntityScreen(
                   //         manga: manga),
                   //   ),
                   // );

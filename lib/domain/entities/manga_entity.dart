@@ -1,10 +1,10 @@
-class Manga {
+class MangaEntity {
   final int id;
   final String title, description, image, author;
   final List<String> genres;
   final List<Map> chapter_list;
 
-  Manga({
+  MangaEntity({
     required this.id,
     required this.title,
     required this.description,
@@ -17,8 +17,8 @@ class Manga {
 
 // list of products
 // for our demo
-List<Manga> mangas = [
-  Manga(
+List<MangaEntity> mangas = [
+  MangaEntity(
     id: 1,
     title: "Сайке кусуоу",
     image: "assets/images/1.jpg",
@@ -34,7 +34,7 @@ List<Manga> mangas = [
     description: "Манхва, экстрасенсорика",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
-  Manga(
+  MangaEntity(
     id: 2,
     title: "Токийский гуль",
     author: "Ямада хидзео",
@@ -50,7 +50,7 @@ List<Manga> mangas = [
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
-  Manga(
+  MangaEntity(
     id: 3,
     title: "Поднятие уровня в одиночку",
     image: "assets/images/3.jpg",
@@ -66,7 +66,7 @@ List<Manga> mangas = [
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
-  Manga(
+  MangaEntity(
     id: 4,
     title: "Токийский гуль",
     author: "Ямада хидзео",
@@ -82,7 +82,7 @@ List<Manga> mangas = [
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
-  Manga(
+  MangaEntity(
     id: 5,
     title: "Поднятие уровня в одиночку",
     image: "assets/images/5.jpg",
@@ -98,7 +98,7 @@ List<Manga> mangas = [
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
-  Manga(
+  MangaEntity(
     id: 6,
     title: "Токийский гуль",
     author: "Ямада хидзео",
@@ -114,7 +114,7 @@ List<Manga> mangas = [
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
   ),
-  Manga(
+  MangaEntity(
     id: 7,
     author: "Ямада хидзео",
     title: "Поднятие уровня в одиночку | Solo leveling.......",

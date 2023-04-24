@@ -3,7 +3,7 @@ import 'package:poki_manga/core/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/detail_manga_screen.dart';
 
-import '../../../../domain/entities/manga.dart';
+import '../../../../domain/entities/manga_entity.dart';
 import '../../../widgets/slide_left_route.dart';
 import 'manga_card.dart';
 
@@ -32,12 +32,12 @@ class _CardGridState extends State<CardGrid> {
               mainAxisSpacing: 10,
               mainAxisExtent: 230,
               maxCrossAxisExtent: 150),
-          itemBuilder: (context, index) => MangaCard(
+          itemBuilder: (context, index) => MangaEntityCard(
             press: () {
               Navigator.push(
                 context,
                 SlideLeftRoute(
-                  page: DetailMangaScreen(manga: mangas[index]),
+                  page: DetailMangaEntityScreen(manga: mangas[index]),
                 ),
               );
             },

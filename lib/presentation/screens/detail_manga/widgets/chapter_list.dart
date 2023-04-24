@@ -3,7 +3,7 @@ import 'package:poki_manga/core/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/detail_manga_screen.dart';
 
-import '../../../../domain/entities/manga.dart';
+import '../../../../domain/entities/manga_entity.dart';
 import '../../../widgets/slide_left_route.dart';
 import '../../reader/reader_screen.dart';
 import 'chapter_list_item.dart';

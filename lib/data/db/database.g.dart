@@ -3,12 +3,12 @@
 part of 'database.dart';
 
 // ignore_for_file: type=lint
-class $MangaTableTable extends MangaTable
-    with TableInfo<$MangaTableTable, MangaTableData> {
+class $MangaEntityTableTable extends MangaEntityTable
+    with TableInfo<$MangaEntityTableTable, MangaEntityTableData> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $MangaTableTable(this.attachedDatabase, [this._alias]);
+  $MangaEntityTableTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
@@ -52,7 +52,7 @@ class $MangaTableTable extends MangaTable
   @override
   String get actualTableName => 'manga_table';
   @override
-  VerificationContext validateIntegrity(Insertable<MangaTableData> instance,
+  VerificationContext validateIntegrity(Insertable<MangaEntityTableData> instance,
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
@@ -97,9 +97,9 @@ class $MangaTableTable extends MangaTable
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  MangaTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  MangaEntityTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return MangaTableData(
+    return MangaEntityTableData(
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
       title: attachedDatabase.typeMapping
@@ -116,19 +116,19 @@ class $MangaTableTable extends MangaTable
   }
 
   @override
-  $MangaTableTable createAlias(String alias) {
-    return $MangaTableTable(attachedDatabase, alias);
+  $MangaEntityTableTable createAlias(String alias) {
+    return $MangaEntityTableTable(attachedDatabase, alias);
   }
 }
 
-class MangaTableData extends DataClass implements Insertable<MangaTableData> {
+class MangaEntityTableData extends DataClass implements Insertable<MangaEntityTableData> {
   final int id;
   final String title;
   final String author;
   final String image;
   final String description;
   final String genres;
-  const MangaTableData(
+  const MangaEntityTableData(
       {required this.id,
       required this.title,
       required this.author,
@@ -147,8 +147,8 @@ class MangaTableData extends DataClass implements Insertable<MangaTableData> {
     return map;
   }
 
-  MangaTableCompanion toCompanion(bool nullToAbsent) {
-    return MangaTableCompanion(
+  MangaEntityTableCompanion toCompanion(bool nullToAbsent) {
+    return MangaEntityTableCompanion(
       id: Value(id),
       title: Value(title),
       author: Value(author),
@@ -158,10 +158,10 @@ class MangaTableData extends DataClass implements Insertable<MangaTableData> {
     );
   }
 
-  factory MangaTableData.fromJson(Map<String, dynamic> json,
+  factory MangaEntityTableData.fromJson(Map<String, dynamic> json,
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return MangaTableData(
+    return MangaEntityTableData(
       id: serializer.fromJson<int>(json['id']),
       title: serializer.fromJson<String>(json['title']),
       author: serializer.fromJson<String>(json['author']),
@@ -183,14 +183,14 @@ class MangaTableData extends DataClass implements Insertable<MangaTableData> {
     };
   }
 
-  MangaTableData copyWith(
+  MangaEntityTableData copyWith(
           {int? id,
           String? title,
           String? author,
           String? image,
           String? description,
           String? genres}) =>
-      MangaTableData(
+      MangaEntityTableData(
         id: id ?? this.id,
         title: title ?? this.title,
         author: author ?? this.author,
@@ -200,7 +200,7 @@ class MangaTableData extends DataClass implements Insertable<MangaTableData> {
       );
   @override
   String toString() {
-    return (StringBuffer('MangaTableData(')
+    return (StringBuffer('MangaEntityTableData(')
           ..write('id: $id, ')
           ..write('title: $title, ')
           ..write('author: $author, ')
@@ -217,7 +217,7 @@ class MangaTableData extends DataClass implements Insertable<MangaTableData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is MangaTableData &&
+      (other is MangaEntityTableData &&
           other.id == this.id &&
           other.title == this.title &&
           other.author == this.author &&
@@ -226,14 +226,14 @@ class MangaTableData extends DataClass implements Insertable<MangaTableData> {
           other.genres == this.genres);
 }
 
-class MangaTableCompanion extends UpdateCompanion<MangaTableData> {
+class MangaEntityTableCompanion extends UpdateCompanion<MangaEntityTableData> {
   final Value<int> id;
   final Value<String> title;
   final Value<String> author;
   final Value<String> image;
   final Value<String> description;
   final Value<String> genres;
-  const MangaTableCompanion({
+  const MangaEntityTableCompanion({
     this.id = const Value.absent(),
     this.title = const Value.absent(),
     this.author = const Value.absent(),
@@ -241,7 +241,7 @@ class MangaTableCompanion extends UpdateCompanion<MangaTableData> {
     this.description = const Value.absent(),
     this.genres = const Value.absent(),
   });
-  MangaTableCompanion.insert({
+  MangaEntityTableCompanion.insert({
     this.id = const Value.absent(),
     required String title,
     required String author,
@@ -253,7 +253,7 @@ class MangaTableCompanion extends UpdateCompanion<MangaTableData> {
         image = Value(image),
         description = Value(description),
         genres = Value(genres);
-  static Insertable<MangaTableData> custom({
+  static Insertable<MangaEntityTableData> custom({
     Expression<int>? id,
     Expression<String>? title,
     Expression<String>? author,
@@ -271,14 +271,14 @@ class MangaTableCompanion extends UpdateCompanion<MangaTableData> {
     });
   }
 
-  MangaTableCompanion copyWith(
+  MangaEntityTableCompanion copyWith(
       {Value<int>? id,
       Value<String>? title,
       Value<String>? author,
       Value<String>? image,
       Value<String>? description,
       Value<String>? genres}) {
-    return MangaTableCompanion(
+    return MangaEntityTableCompanion(
       id: id ?? this.id,
       title: title ?? this.title,
       author: author ?? this.author,
@@ -314,7 +314,7 @@ class MangaTableCompanion extends UpdateCompanion<MangaTableData> {
 
   @override
   String toString() {
-    return (StringBuffer('MangaTableCompanion(')
+    return (StringBuffer('MangaEntityTableCompanion(')
           ..write('id: $id, ')
           ..write('title: $title, ')
           ..write('author: $author, ')
@@ -328,7 +328,7 @@ class MangaTableCompanion extends UpdateCompanion<MangaTableData> {
 
 abstract class _$Database extends GeneratedDatabase {
   _$Database(QueryExecutor e) : super(e);
-  late final $MangaTableTable mangaTable = $MangaTableTable(this);
+  late final $MangaEntityTableTable mangaTable = $MangaEntityTableTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();

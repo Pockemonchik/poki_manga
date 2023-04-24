@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/core/constants.dart';
-import '../../../cubit/manga_cubit.dart';
+import '../../../cubit/manga_catalog_cubit.dart';
 import '../../../cubit/manga_state.dart';
 import 'manga_card.dart';
 
@@ -15,12 +15,12 @@ class _CardGridState extends State<CardGrid> {
 
   @override
   Widget build(BuildContext context) {
-    // final MangaCubit mangaCubit = context.read<MangaCubit>();
+    // final MangaEntityCubit mangaCubit = context.read<MangaEntityCubit>();
     Size size = MediaQuery.of(context).size;
-    final MangaCubit mangaCubit = context.read<MangaCubit>();
-    return BlocBuilder<MangaCubit, MangaState>(
+    final MangaCatalogCubit mangaCubit = context.read<MangaCatalogCubit>();
+    return BlocBuilder<MangaCatalogCubit, MangaEntityState>(
       builder: (context, state) {
-        if (state is MangaEmptyState) {
+        if (state is MangaEntityEmptyState) {
           return Center(
             child: TextButton(
               style: TextButton.styleFrom(
@@ -28,23 +28,23 @@ class _CardGridState extends State<CardGrid> {
               ),
               child: const Text("загрузить мангу"),
               onPressed: () {
-                mangaCubit.fetchManga();
+                mangaCubit.fetchMangaEntity();
               },
             ),
           );
         }
-        if (state is MangaLoadingState) {
+        if (state is MangaEntityLoadingState) {
           return const Center(
             child: Text("loading ..."),
           );
         }
-        if (state is MangaLoadedState) {
+        if (state is MangaEntityLoadedState) {
           return Container(
             margin: const EdgeInsets.symmetric(
                 vertical: kDefaultPadding, horizontal: kDefaultPadding),
             height: size.height * 0.6,
             child: GridView.builder(
-              itemCount: state.loadedManga.length,
+              itemCount: state.loadedMangaEntity.length,
 
               // ignore: prefer_const_constructors
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -53,10 +53,10 @@ class _CardGridState extends State<CardGrid> {
                 mainAxisExtent: 140,
                 maxCrossAxisExtent: 600,
               ),
-              itemBuilder: (context, index) => MangaCard(
+              itemBuilder: (context, index) => MangaEntityCard(
                 
                 itemIndex: index,
-                manga: state.loadedManga[index],
+                manga: state.loadedMangaEntity[index],
               ),
             ),
           );

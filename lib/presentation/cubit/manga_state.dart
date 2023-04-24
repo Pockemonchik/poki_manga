@@ -1,14 +1,13 @@
-abstract class MangaState {}
+abstract class MangaEntityState {}
 
-class MangaEmptyState extends MangaState {}
+class MangaEntityEmptyState extends MangaEntityState {}
 
-class MangaLoadingState extends MangaState {}
+class MangaEntityLoadingState extends MangaEntityState {}
 
-class MangaLoadedState extends MangaState {
-  List<dynamic> loadedManga;
-  List<dynamic> dbManga;
-  MangaLoadedState({required this.loadedManga, required this.dbManga})
-      : assert(loadedManga != null);
+class MangaEntityLoadedState extends MangaEntityState {
+  List<dynamic> loadedMangaEntity;
+  MangaEntityLoadedState({required this.loadedMangaEntity})
+      : assert(loadedMangaEntity != null);
 }
 
-class MangaErrorState extends MangaState {}
+class MangaEntityErrorState extends MangaEntityState {}

@@ -1,9 +1,9 @@
-import '../../domain/entities/manga.dart';
+import '../../domain/entities/manga_entity.dart';
 import '../db/database.dart';
 
-extension MangaTableDataToDomain on MangaTableData {
-  Manga toDomain() {
-    return Manga(
+extension MangaEntityTableDataToDomain on MangaEntityTableData {
+  MangaEntity toDomain() {
+    return MangaEntity(
     id: id, 
     title: title,
     description: description, 

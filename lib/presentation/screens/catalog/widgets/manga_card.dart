@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 
-import '../../../../domain/entities/manga.dart';
+import '../../../../domain/entities/manga_entity.dart';
 import '../../../widgets/slide_left_route.dart';
 import '../../detail_manga/detail_manga_screen.dart';
 
-class MangaCard extends StatelessWidget {
-  const MangaCard({
+class MangaEntityCard extends StatelessWidget {
+  const MangaEntityCard({
     super.key,
     required this.itemIndex,
     required this.manga,
   });
 
   final int itemIndex;
-  final Manga manga;
+  final MangaEntity manga;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class MangaCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 55,
+                        height: 50,
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -70,8 +70,8 @@ class MangaCard extends StatelessWidget {
                       ),
                       const SizedBox(height: kDefaultPadding),
                       SizedBox(
-                        height: 20,
-                        width: 70,
+                        height: 25,
+                        width: 90,
                         child: TextButton(
                           style: TextButton.styleFrom(
                             backgroundColor: kButtonColor,
@@ -82,7 +82,7 @@ class MangaCard extends StatelessWidget {
                             Navigator.push(
                               context,
                               SlideLeftRoute(
-                                page: DetailMangaScreen(
+                                page: DetailMangaEntityScreen(
                                     manga: manga),
                               ),
                             );

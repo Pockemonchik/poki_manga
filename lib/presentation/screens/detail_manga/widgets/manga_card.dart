@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/core/constants.dart';
 
-import '../../../../domain/entities/manga.dart';
+import '../../../../domain/entities/manga_entity.dart';
 
-class MangaCard extends StatelessWidget {
-  const MangaCard({
+class MangaEntityCard extends StatelessWidget {
+  const MangaEntityCard({
     super.key,
     required this.manga,
   });
 
-  final Manga manga;
+  final MangaEntity manga;
 
   @override
   Widget build(BuildContext context) {
