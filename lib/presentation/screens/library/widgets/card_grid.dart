@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/core/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/detail_manga_screen.dart';
 
 import '../../../../domain/entities/manga_entity.dart';
+import '../../../cubit/manga_library_cubit.dart';
+import '../../../cubit/manga_library_state.dart';
+import '../../../cubit/manga_state.dart';
 import '../../../widgets/slide_left_route.dart';
 import 'manga_card.dart';
 
@@ -14,15 +18,38 @@ class CardGrid extends StatefulWidget {
 
 class _CardGridState extends State<CardGrid> {
   int selectedIndex = 0;
-
+   
   @override
   Widget build(BuildContext context) {
-    return Container(
+
+    final MangaLibraryCubit mangaCubit = context.read<MangaLibraryCubit>();
+    return BlocBuilder<MangaLibraryCubit, MangaLibraryState>(
+      builder: (context, state) {
+        if (state is MangaLibraryEmptyState) {
+          return Center(
+            child: TextButton(
+              style: TextButton.styleFrom(
+                backgroundColor: kButtonColor,
+              ),
+              child: const Text("загрузить мангу"),
+              onPressed: () {
+                mangaCubit.fetchFavouriteMangaEntity();
+              },
+            ),
+          );
+        }
+        if (state is MangaLibraryLoadingState) {
+          return const Center(
+            child: Text("loading ..."),
+          );
+        }
+        if (state is MangaLibraryLoadedState) {
+          return Container(
         margin: const EdgeInsets.symmetric(
             vertical: kDefaultPadding, horizontal: kDefaultPadding),
         height: 800,
         child: GridView.builder(
-          itemCount: mangas.length,
+          itemCount: state.loadedMangaEntity.length,
 
           // ignore: prefer_const_constructors
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -37,13 +64,18 @@ class _CardGridState extends State<CardGrid> {
               Navigator.push(
                 context,
                 SlideLeftRoute(
-                  page: DetailMangaEntityScreen(manga: mangas[index]),
+                  page: DetailMangaEntityScreen(manga: state.loadedMangaEntity[index]),
                 ),
               );
             },
             itemIndex: index,
-            manga: mangas[index],
+            manga:state.loadedMangaEntity[index],
           ),
         ));
+        }
+        return const SizedBox.shrink();
+      },
+    );
+    
   }
 }

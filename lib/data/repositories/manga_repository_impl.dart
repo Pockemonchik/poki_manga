@@ -5,6 +5,7 @@ import 'package:poki_manga/data/mappers/manga_table_data_to_domain.dart';
 import '../../domain/entities/manga_entity.dart';
 import '../../domain/repositories/manga_repository.dart';
 import '../datasources/manga_provider.dart';
+import 'dart:developer';
 
 class MangaRepositoryImpl implements MangaRepository{
   
@@ -13,7 +14,7 @@ class MangaRepositoryImpl implements MangaRepository{
 
   final Database _db = Database();
 
-  Future<List<MangaEntity>> getAllMangaEntityDB() async {
+  Future<List<MangaEntity>> getAllMangaDB() async {
     // получаем всю закеширвоанную мангу
     List<MangaEntityTableData> mangasDB = await _db.select(_db.mangaTable).get();
     return mangasDB
@@ -21,7 +22,7 @@ class MangaRepositoryImpl implements MangaRepository{
         .toList();
   }
 
-  Future<void> insertMangaEntityDB(MangaEntity manga) async {
+  Future<void> insertMangaDB(MangaEntity manga) async {
     // добавляем мангу в дб
     await _db.into(_db.mangaTable).insert(
           manga.toDatabase(),
@@ -29,7 +30,7 @@ class MangaRepositoryImpl implements MangaRepository{
         );
   }
 
-  Future<void> deleteMangaEntityDB(int id) async {
+  Future<void> deleteMangaDB(int id) async {
     // удаляем мангу из дб
     await (_db.delete(_db.mangaTable)
           ..where((mangaTable) => mangaTable.id.equals(id)))
@@ -57,8 +58,15 @@ class MangaRepositoryImpl implements MangaRepository{
   }
   
   @override
-  Future<void> insertMangaToFavourites(MangaEntity manga) {
-    // TODO: implement insertMangaToFavourites
-    throw UnimplementedError();
+  Future<void> insertMangaToFavourites(MangaEntity manga) async {
+    log('insert_manga');
+    await insertMangaDB(manga);
+
+  }
+  
+  @override
+  Future<List<MangaEntity>> getFavouriteManga() async {
+    List<MangaEntity> mangas = await getAllMangaDB();
+    return mangas;
   }
 }
