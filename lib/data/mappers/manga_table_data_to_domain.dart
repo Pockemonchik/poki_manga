@@ -8,6 +8,7 @@ extension MangaEntityTableDataToDomain on MangaEntityTableData {
     title: title,
     description: description, 
     image: image, 
+    favourite: true,
     genres: ["имба гг", " комедия", "романтика", "школа"],
     chapter_list:  [
       {"title":"1 глава","status": true},

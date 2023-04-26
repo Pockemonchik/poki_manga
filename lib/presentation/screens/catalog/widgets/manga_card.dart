@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/core/constants.dart';
 
 import '../../../../domain/entities/manga_entity.dart';
-import '../../../cubit/manga_catalog_cubit.dart';
-import '../../../cubit/manga_state.dart';
+import '../../../cubit/manga_catalog_cubit/manga_catalog_cubit.dart';
 import '../../../widgets/slide_left_route.dart';
 import '../../detail_manga/detail_manga_screen.dart';
 
@@ -21,7 +20,7 @@ class MangaEntityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final MangaCatalogCubit mangaCubit = context.read<MangaCatalogCubit>();
+    final MangaCatalogCubit mangaCatalogCubit = context.read<MangaCatalogCubit>();
     return Stack(
       children: [
         Container(
@@ -103,14 +102,14 @@ class MangaEntityCard extends StatelessWidget {
           top: -10,
           right: 10,
           child: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.bookmark,
-              color: Colors.red,
+              color: manga.favourite? Colors.red: Colors.grey,
               size: 25.0,
             ),
             tooltip: 'Добавить в закладки',
             onPressed:  () async =>  {
-              await mangaCubit.insertMangaToFavourites(manga)
+              await mangaCatalogCubit.addMangaToFavourites(manga)
               },
           ),
         ),
