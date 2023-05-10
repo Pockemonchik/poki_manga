@@ -7,6 +7,7 @@ import '../../domain/repositories/manga_repository.dart';
 import '../datasources/manga_provider.dart';
 import 'dart:developer';
 
+
 class MangaRepositoryImpl implements MangaRepository{
   
   final MangaEntityProvider _mangaProvider = MangaEntityProvider();
@@ -16,9 +17,9 @@ class MangaRepositoryImpl implements MangaRepository{
 
   Future<List<MangaEntity>> getAllMangaDB() async {
     // получаем всю закеширвоанную мангу
-    List<MangaEntityTableData> mangasDB = await _db.select(_db.mangaTable).get();
+    List<MangaTableData> mangasDB = await _db.select(_db.mangaTable).get();
     return mangasDB
-        .map((MangaEntityTableData mangaTableData) => mangaTableData.toDomain())
+        .map((MangaTableData mangaTableData) => mangaTableData.toDomain())
         .toList();
   }
 
@@ -39,7 +40,7 @@ class MangaRepositoryImpl implements MangaRepository{
 
   Stream<List<MangaEntity>> onChangeMangaEntityDB() {
     return (_db.select(_db.mangaTable))
-        .map((MangaEntityTableData mangaTableData) => mangaTableData.toDomain())
+        .map((MangaTableData mangaTableData) => mangaTableData.toDomain())
         .watch();
   }
 

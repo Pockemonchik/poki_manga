@@ -11,7 +11,7 @@ part 'database.g.dart';
 
 
 
-@DriftDatabase(tables: [MangaEntityTable])
+@DriftDatabase(tables: [MangaTable])
 class Database extends _$Database {
   // we tell the database where to store the data with this constructor
   Database() : super(_openConnection());

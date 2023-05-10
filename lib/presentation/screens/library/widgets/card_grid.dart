@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/core/constants.dart';
-import 'package:flutter/foundation.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/detail_manga_screen.dart';
-
-import '../../../../domain/entities/manga_entity.dart';
 import '../../../cubit/manga_library_cubit/manga_library_cubit.dart';
 import '../../../cubit/manga_library_cubit/manga_library_state.dart';
-import '../../../cubit/manga_catalog_cubit/manga_catalog_state.dart';
 import '../../../widgets/slide_left_route.dart';
 import 'manga_card.dart';
 

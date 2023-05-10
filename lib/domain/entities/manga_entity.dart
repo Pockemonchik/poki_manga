@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
-class MangaEntity extends Equatable{
+class MangaEntity extends Equatable {
   final int id;
   final String title, description, image, author;
-  bool favourite;
+  bool favourite, reading, alreadyRead;
   final List<String> genres;
   final List<Map> chapter_list;
 
@@ -15,12 +15,16 @@ class MangaEntity extends Equatable{
     required this.genres,
     required this.chapter_list,
     required this.author,
+    required this.reading,
+    required this.alreadyRead,
     required this.favourite,
   });
-  
+
   @override
   // TODO: implement props
-  List<Object?> get props => [title,];
+  List<Object?> get props => [
+        title,
+      ];
 }
 
 // list of products
@@ -39,6 +43,8 @@ List<MangaEntity> mangas = [
       {"title": "1 глава", "status": false},
     ],
     favourite: false,
+    reading: false,
+    alreadyRead: true,
     author: "Ямада хидзео",
     description: "Манхва, экстрасенсорика",
     genres: ["имба гг", " комедия", "романтика", "школа"],
@@ -47,6 +53,8 @@ List<MangaEntity> mangas = [
     id: 2,
     title: "Токийский гуль",
     favourite: true,
+    reading: true,
+    alreadyRead: false,
     author: "Ямада хидзео",
     image: "assets/images/2.jpg",
     chapter_list: [
@@ -73,6 +81,8 @@ List<MangaEntity> mangas = [
       {"title": "1 глава", "status": true},
     ],
     favourite: false,
+    reading: false,
+    alreadyRead: true,
     author: "Ямада хидзео",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
@@ -81,6 +91,8 @@ List<MangaEntity> mangas = [
     id: 4,
     title: "Токийский гуль",
     favourite: true,
+    reading: true,
+    alreadyRead: false,
     author: "Ямада хидзео",
     image: "assets/images/4.jpg",
     chapter_list: [
@@ -107,6 +119,8 @@ List<MangaEntity> mangas = [
       {"title": "1 глава", "status": true},
     ],
     favourite: false,
+    reading: false,
+    alreadyRead: true,
     author: "Ямада хидзео",
     description: "Манга, Имба гг, супер",
     genres: ["имба гг", " комедия", "романтика", "школа"],
@@ -115,6 +129,8 @@ List<MangaEntity> mangas = [
     id: 6,
     title: "Токийский гуль",
     favourite: true,
+    reading: true,
+    alreadyRead: false,
     author: "Ямада хидзео",
     image: "assets/images/2.jpg",
     chapter_list: [
@@ -131,6 +147,8 @@ List<MangaEntity> mangas = [
   MangaEntity(
     id: 7,
     favourite: false,
+    reading: false,
+    alreadyRead: true,
     author: "Ямада хидзео",
     title: "Поднятие уровня в одиночку | Solo leveling.......",
     image: "assets/images/3.jpg",

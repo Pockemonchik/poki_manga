@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/core/constants.dart';
-
+import '../../../cubit/manga_library_cubit/manga_library_cubit.dart';
+import '../../../cubit/manga_library_cubit/manga_library_state.dart';
 
 class CategoryList extends StatefulWidget {
   @override
@@ -8,19 +10,31 @@ class CategoryList extends StatefulWidget {
 }
 
 class _CategoryListState extends State<CategoryList> {
-
   int selectedIndex = 0;
-  List categories = ['Читаю', 'Закладки', 'Прочитанное'];
+  List categories = ['Читаю', 'Избранное', 'Прочитанное'];
+
   @override
   Widget build(BuildContext context) {
-   return Container(
-    height: 25,
+    final MangaLibraryCubit mangaCubit = context.read<MangaLibraryCubit>();
+    return Container(
+      height: 25,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         itemCount: categories.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
+            switch (categories[index]) {
+              case 'Читаю':
+                mangaCubit.fetchReadingMangaEntity();
+                break;
+              case 'Избранное':
+                mangaCubit.fetchFavouriteMangaEntity();
+                break;
+              case 'Прочитанное':
+                mangaCubit.fetchAlreadyReadMangaEntity();
+                break;
+            }
             setState(() {
               selectedIndex = index;
             });
@@ -33,15 +47,13 @@ class _CategoryListState extends State<CategoryList> {
               right: index == categories.length - 1 ? kDefaultPadding : 0,
             ),
             padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-            decoration: BoxDecoration( 
-              color: index == selectedIndex
-                  ? kButtonColor
-                  : kBackgroundColor,
+            decoration: BoxDecoration(
+              color: index == selectedIndex ? kButtonColor : kBackgroundColor,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Text(
               categories[index],
-              style: TextStyle(fontSize: 12.0,color: kShapeTextColor),
+              style: TextStyle(fontSize: 12.0, color: kShapeTextColor),
             ),
           ),
         ),
@@ -49,4 +61,3 @@ class _CategoryListState extends State<CategoryList> {
     );
   }
 }
-  

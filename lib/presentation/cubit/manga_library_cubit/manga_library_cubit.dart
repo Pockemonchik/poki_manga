@@ -14,10 +14,38 @@ class MangaLibraryCubit extends Cubit<MangaLibraryState> {
       : super(MangaLibraryEmptyState());
 
   Future<void> fetchFavouriteMangaEntity() async {
-    //получаем мангу из сети
+    //из базы
     try {
       emit(MangaLibraryLoadingState());
       final List<MangaEntity> mangaList = await getFavouriteManga();
+      emit(MangaLibraryLoadedState(loadedMangaEntity: mangaList));
+    } catch (e) {
+      emit(MangaLibraryErrorState());
+    }
+  }
+
+  Future<void> fetchReadingMangaEntity() async {
+    //показываем манги ЧИТАЮ
+    try {
+      emit(MangaLibraryLoadingState());
+      final List<MangaEntity> mangaList =
+          (await getFavouriteManga())
+          .where((e) => e.reading == true)
+          .toList();
+      emit(MangaLibraryLoadedState(loadedMangaEntity: mangaList));
+    } catch (e) {
+      emit(MangaLibraryErrorState());
+    }
+  }
+
+  Future<void> fetchAlreadyReadMangaEntity() async {
+    //показываем манги ЧИТАЮ
+    try {
+      emit(MangaLibraryLoadingState());
+      final List<MangaEntity> mangaList =
+          (await getFavouriteManga())
+          .where((e) => e.alreadyRead == true)
+          .toList();
       emit(MangaLibraryLoadedState(loadedMangaEntity: mangaList));
     } catch (e) {
       emit(MangaLibraryErrorState());

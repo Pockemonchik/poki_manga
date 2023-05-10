@@ -1,14 +1,18 @@
+import 'package:flutter/material.dart';
+
 import '../../domain/entities/manga_entity.dart';
 import '../db/database.dart';
 
-extension MangaEntityTableDataToDomain on MangaEntityTableData {
+extension MangaEntityTableDataToDomain on MangaTableData {
   MangaEntity toDomain() {
     return MangaEntity(
     id: id, 
     title: title,
     description: description, 
     image: image, 
-    favourite: true,
+    favourite: favourite,
+    reading: reading,
+    alreadyRead: alreadyRead,
     genres: ["имба гг", " комедия", "романтика", "школа"],
     chapter_list:  [
       {"title":"1 глава","status": true},
