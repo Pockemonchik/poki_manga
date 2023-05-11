@@ -26,13 +26,13 @@ class _CategoryListState extends State<CategoryList> {
           onTap: () {
             switch (categories[index]) {
               case 'Читаю':
-                mangaCubit.fetchReadingMangaEntity();
+                mangaCubit.filterSavedMangaEntity('reading');
                 break;
               case 'Избранное':
-                mangaCubit.fetchFavouriteMangaEntity();
+               mangaCubit.filterSavedMangaEntity('favourite');
                 break;
               case 'Прочитанное':
-                mangaCubit.fetchAlreadyReadMangaEntity();
+                mangaCubit.filterSavedMangaEntity('alreadyRead');
                 break;
             }
             setState(() {

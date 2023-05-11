@@ -2,12 +2,12 @@ import 'package:poki_manga/domain/repositories/manga_repository.dart';
 
 import '../entities/manga_entity.dart';
 
-class GetFavouriteManga {
+class GetSavedManga {
   final MangaRepository mangaRepository;
-  GetFavouriteManga(this.mangaRepository);
+  GetSavedManga(this.mangaRepository);
 
   Future<List<MangaEntity>> call() async {
-    return await mangaRepository.getFavouriteManga();
+    return await mangaRepository.getSavedManga();
   }
 }
 

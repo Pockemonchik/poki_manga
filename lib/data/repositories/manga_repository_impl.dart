@@ -66,7 +66,7 @@ class MangaRepositoryImpl implements MangaRepository{
   }
   
   @override
-  Future<List<MangaEntity>> getFavouriteManga() async {
+  Future<List<MangaEntity>> getSavedManga() async {
     List<MangaEntity> mangas = await getAllMangaDB();
     return mangas;
   }

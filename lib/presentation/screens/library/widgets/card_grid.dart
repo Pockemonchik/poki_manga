@@ -14,11 +14,12 @@ class CardGrid extends StatefulWidget {
 
 class _CardGridState extends State<CardGrid> {
   int selectedIndex = 0;
-   
+
   @override
   Widget build(BuildContext context) {
-
     final MangaLibraryCubit mangaCubit = context.read<MangaLibraryCubit>();
+    
+
     return BlocBuilder<MangaLibraryCubit, MangaLibraryState>(
       builder: (context, state) {
         if (state is MangaLibraryEmptyState) {
@@ -29,7 +30,7 @@ class _CardGridState extends State<CardGrid> {
               ),
               child: const Text("загрузить мангу"),
               onPressed: () {
-                mangaCubit.fetchFavouriteMangaEntity();
+                mangaCubit.fetchSavedMangaEntity();
               },
             ),
           );
@@ -41,37 +42,43 @@ class _CardGridState extends State<CardGrid> {
         }
         if (state is MangaLibraryLoadedState) {
           return Container(
-        margin: const EdgeInsets.symmetric(
-            vertical: kDefaultPadding, horizontal: kDefaultPadding),
-        height: 800,
-        child: GridView.builder(
-          itemCount: state.loadedMangaEntity.length,
+            margin: const EdgeInsets.symmetric(
+                vertical: kDefaultPadding, horizontal: kDefaultPadding),
+            height: 800,
+            child: RefreshIndicator(
+              onRefresh: () async {
+                await mangaCubit.filterSavedMangaEntity(state.category);
+              },
+              child: GridView.builder(
+                itemCount: state.loadedMangaEntity.length,
 
-          // ignore: prefer_const_constructors
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              // crossAxisCount: 3,
-              childAspectRatio: 0.2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              mainAxisExtent: 230,
-              maxCrossAxisExtent: 150),
-          itemBuilder: (context, index) => MangaEntityCard(
-            press: () {
-              Navigator.push(
-                context,
-                SlideLeftRoute(
-                  page: DetailMangaEntityScreen(manga: state.loadedMangaEntity[index]),
+                // ignore: prefer_const_constructors
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    // crossAxisCount: 3,
+                    childAspectRatio: 0.2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    mainAxisExtent: 230,
+                    maxCrossAxisExtent: 150),
+                itemBuilder: (context, index) => MangaEntityCard(
+                  press: () {
+                    Navigator.push(
+                      context,
+                      SlideLeftRoute(
+                        page: DetailMangaEntityScreen(
+                            manga: state.filteredMangaEntity[index]),
+                      ),
+                    );
+                  },
+                  itemIndex: index,
+                  manga: state.filteredMangaEntity[index],
                 ),
-              );
-            },
-            itemIndex: index,
-            manga:state.loadedMangaEntity[index],
-          ),
-        ));
+              ),
+            ),
+          );
         }
         return const SizedBox.shrink();
       },
     );
-    
   }
 }
