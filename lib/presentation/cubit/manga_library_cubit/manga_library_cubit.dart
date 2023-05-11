@@ -19,7 +19,7 @@ class MangaLibraryCubit extends Cubit<MangaLibraryState> {
     //из базы достаем начальная категория reading
     try {
       emit(MangaLibraryLoadingState());
-      // sleep(Duration(seconds:1));
+      sleep(Duration(seconds:1));
       final List<MangaEntity> mangaList = await getSavedManga();
       final List<MangaEntity> filteredMangaList =
           mangaList.where((e) => e.reading == true).toList();
@@ -38,7 +38,7 @@ class MangaLibraryCubit extends Cubit<MangaLibraryState> {
     //фильтруем по категориям
     try {
       emit(MangaLibraryLoadingState());
-      // sleep(Duration(seconds:1));
+      sleep(Duration(seconds:1));
       final List<MangaEntity> mangaList = await getSavedManga();
       final List<MangaEntity> filteredMangaList;
       switch (category) {

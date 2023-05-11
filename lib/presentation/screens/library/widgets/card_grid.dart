@@ -30,7 +30,7 @@ class _CardGridState extends State<CardGrid> {
               ),
               child: const Text("загрузить мангу"),
               onPressed: () {
-                mangaCubit.fetchSavedMangaEntity();
+                mangaCubit.filterSavedMangaEntity('reading');
               },
             ),
           );
@@ -50,7 +50,7 @@ class _CardGridState extends State<CardGrid> {
                 await mangaCubit.filterSavedMangaEntity(state.category);
               },
               child: GridView.builder(
-                itemCount: state.loadedMangaEntity.length,
+                itemCount: state.filteredMangaEntity.length,
 
                 // ignore: prefer_const_constructors
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
