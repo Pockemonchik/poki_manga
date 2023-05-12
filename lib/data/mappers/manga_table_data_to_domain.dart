@@ -14,7 +14,7 @@ extension MangaEntityTableDataToDomain on MangaTableData {
     reading: reading,
     alreadyRead: alreadyRead,
     genres: ["имба гг", " комедия", "романтика", "школа"],
-    chapter_list:  [
+    chapters:  [
       {"title":"1 глава","status": true},
       {"title":"1 глава","status": true},
       {"title":"1 глава","status": true},

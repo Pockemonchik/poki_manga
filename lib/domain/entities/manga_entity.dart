@@ -5,7 +5,7 @@ class MangaEntity extends Equatable {
   final String title, description, image, author;
   bool favourite, reading, alreadyRead;
   final List<String> genres;
-  final List<Map> chapter_list;
+  final List<Map> chapters;
 
   MangaEntity({
     required this.id,
@@ -13,7 +13,7 @@ class MangaEntity extends Equatable {
     required this.description,
     required this.image,
     required this.genres,
-    required this.chapter_list,
+    required this.chapters,
     required this.author,
     required this.reading,
     required this.alreadyRead,
@@ -34,7 +34,7 @@ List<MangaEntity> mangas = [
     id: 1,
     title: "Сайке кусуоу",
     image: "assets/images/1.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": true},
@@ -57,7 +57,7 @@ List<MangaEntity> mangas = [
     alreadyRead: false,
     author: "Ямада хидзео",
     image: "assets/images/2.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": false},
       {"title": "1 глава", "status": false},
@@ -72,7 +72,7 @@ List<MangaEntity> mangas = [
     id: 3,
     title: "Поднятие уровня в одиночку",
     image: "assets/images/3.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": false},
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": false},
@@ -95,7 +95,7 @@ List<MangaEntity> mangas = [
     alreadyRead: false,
     author: "Ямада хидзео",
     image: "assets/images/4.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": true},
@@ -110,7 +110,7 @@ List<MangaEntity> mangas = [
     id: 5,
     title: "Поднятие уровня в одиночку",
     image: "assets/images/5.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": false},
       {"title": "1 глава", "status": true},
@@ -133,7 +133,7 @@ List<MangaEntity> mangas = [
     alreadyRead: false,
     author: "Ямада хидзео",
     image: "assets/images/2.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": false},
@@ -152,7 +152,7 @@ List<MangaEntity> mangas = [
     author: "Ямада хидзео",
     title: "Поднятие уровня в одиночку | Solo leveling.......",
     image: "assets/images/3.jpg",
-    chapter_list: [
+    chapters: [
       {"title": "1 глава", "status": true},
       {"title": "1 глава", "status": false},
       {"title": "1 глава", "status": true},

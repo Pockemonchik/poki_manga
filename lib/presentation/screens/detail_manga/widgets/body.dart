@@ -80,7 +80,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                         ),
                   ),
                 ),
-                ChapterList(chapter_list: widget.manga.chapter_list),
+                ChapterList(chapter_list: widget.manga.chapters),
                 Center(
                   child: Text("It's sunny here"),
                 ),

@@ -70,4 +70,9 @@ class MangaRepositoryImpl implements MangaRepository{
     List<MangaEntity> mangas = await getAllMangaDB();
     return mangas;
   }
+  
+  @override
+  Future<void> downloadMangaChapters(MangaEntity manga) async {
+    log('download_manga');
+  }
 }

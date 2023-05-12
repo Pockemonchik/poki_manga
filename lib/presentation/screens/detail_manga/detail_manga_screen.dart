@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/presentation/screens/detail_manga/widgets/body.dart';
 
 import '../../../core/constants.dart';
 import '../../../domain/entities/manga_entity.dart';
+import '../../cubit/detail_manga_cubit/detail_manga_cubit.dart';
 import '../../widgets/bottom_nav_bar.dart';
 
 class DetailMangaEntityScreen extends StatelessWidget {
   const DetailMangaEntityScreen({
     super.key,
-    required this.manga,
+    required this.manga, 
   });
 
   final MangaEntity manga;
@@ -23,6 +24,7 @@ class DetailMangaEntityScreen extends StatelessWidget {
   }
 
   AppBar buildAppBar() {
+    
     return AppBar(
         elevation: 0.0,
         toolbarHeight: kToolbarFixHeight+10,
