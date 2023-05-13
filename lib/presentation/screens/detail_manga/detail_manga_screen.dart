@@ -10,27 +10,26 @@ import '../../widgets/bottom_nav_bar.dart';
 class DetailMangaEntityScreen extends StatelessWidget {
   const DetailMangaEntityScreen({
     super.key,
-    required this.manga, 
+    required this.manga,
   });
 
   final MangaEntity manga;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context, manga),
       body: Body(manga: manga),
       bottomNavigationBar: BottomNavBar(),
     );
   }
 
-  AppBar buildAppBar() {
-    
+  AppBar buildAppBar(BuildContext context, MangaEntity manga) {
+    final DetailMangaCubit mangaCubit = context.read<DetailMangaCubit>();
     return AppBar(
         elevation: 0.0,
-        toolbarHeight: kToolbarFixHeight+10,
+        toolbarHeight: kToolbarFixHeight + 10,
         backgroundColor: kPrimaryColor,
         bottomOpacity: 0.0,
-        
         actions: <Widget>[
           IconButton(
             padding: EdgeInsets.only(right: kDefaultPadding),
@@ -50,7 +49,9 @@ class DetailMangaEntityScreen extends StatelessWidget {
               size: 25.0,
             ),
             tooltip: 'Show Snackbar',
-            onPressed: () {},
+            onPressed: () {
+              mangaCubit.downloadMangaChapters(manga);
+            },
           ),
         ]);
   }

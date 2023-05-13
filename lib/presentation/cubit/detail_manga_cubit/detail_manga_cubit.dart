@@ -1,10 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poki_manga/domain/usecases/download_manga_chapters.dart';
-import 'package:poki_manga/presentation/cubit/manga_catalog_cubit/manga_catalog_state.dart';
 import '../../../domain/entities/manga_entity.dart';
-
 import '../../../domain/usecases/insert_manga_to_favourites.dart';
 import 'detail_manga_state.dart';
 
