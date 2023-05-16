@@ -4,6 +4,7 @@ import 'package:poki_manga/presentation/screens/catalog/catalog_screen.dart';
 import 'package:poki_manga/presentation/screens/library/library_screen.dart';
 
 import '../../core/constants.dart';
+import '../screens/profile/profile_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   @override
@@ -61,7 +62,16 @@ class BottomNavBar extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.manage_accounts),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) => ProfileScreen(),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                ),
+              );
+            },
           ),
         ],
       ),
