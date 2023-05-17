@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poki_manga/presentation/screens/profile/widgets/header_with_settings.dart';
+import 'package:poki_manga/presentation/screens/profile/widgets/offline_manga_carousel.dart';
 import 'package:poki_manga/presentation/screens/profile/widgets/profile_card.dart';
 
 import '../../../core/constants.dart';
@@ -13,29 +14,35 @@ class ProfileScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: buildAppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-            height: 280,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: size.height*0.2,
             width: size.width,
             child: Stack(
               children: [
-                 const HeaderWithSettings(),
+                const HeaderWithSettings(),
                 Positioned(
                   top: 0,
                   left: 0,
-                  child: ProfileCard(
-                  ),
+                  child: ProfileCard(),
                 ),
               ],
             ),
           ),
-           
-            const SizedBox(height: kDefaultPadding / 2),
-          ],
-        ),
+          SizedBox(
+            height: kDefaultPadding,
+            width: size.width,
+             child: ColoredBox(color: kPrimaryColor.withOpacity(0.05)),
+          ),
+          OfflineMangaCarousel(),
+          SizedBox(
+            height: kDefaultPadding,
+            width: size.width,
+            child: ColoredBox(color: kPrimaryColor.withOpacity(0.05)),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavBar(),
     );
@@ -44,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
         elevation: 0.0,
-        toolbarHeight: kToolbarFixHeight+2,
+        toolbarHeight: kToolbarFixHeight + 2,
         backgroundColor: kPrimaryColor,
         bottomOpacity: 0.0,
         actions: <Widget>[
